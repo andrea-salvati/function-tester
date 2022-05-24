@@ -1,0 +1,11 @@
+streamlit
+pandas
+numpy
+matplotlib
+datetime
+python-dateutil
+plotly
+PythonTurtle
+tk
+snowflake-connector-python
+jinja2
