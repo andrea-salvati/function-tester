@@ -5,17 +5,17 @@ CASE
     WHEN "{{ ApplicationType }}" ILIKE '%tizen%' AND LENGTH("{{ ApplicationType }}")<50 THEN 'Tizen'
     WHEN "{{ ApplicationType }}" = 'xfinity' THEN 'Xfinity'
     WHEN "{{ ApplicationType }}" ILIKE '%webos%' AND LENGTH("{{ ApplicationType }}")<50 THEN 'Web OS'
-    WHEN "{{ ApplicationType }}" ILIKE '%android' AND LENGTH("{{ ApplicationType }}")<50 THEN 'Android' --might want to clarify if this is android mobile
+    WHEN "{{ ApplicationType }}" ILIKE '%android' AND LENGTH("{{ ApplicationType }}")<50 THEN 'Android'
     WHEN "{{ ApplicationType }}" ILIKE '%exoplayer%' AND LENGTH("{{ ApplicationType }}")<50 THEN 'Android TV'
     WHEN "{{ ApplicationType }}" ILIKE '%abstract%' AND LENGTH("{{ ApplicationType }}")<50 THEN 'Abstract Method'
     WHEN "{{ ApplicationType }}" ILIKE 'ios' AND LENGTH("{{ ApplicationType }}")<50 THEN 'IOS'
     WHEN "{{ ApplicationType }}" ILIKE '%skyq%' AND LENGTH("{{ ApplicationType }}")<50 THEN 'Sky Q'
     WHEN "{{ ApplicationType }}" ILIKE '%MDK_SKY_Q' AND LENGTH("{{ ApplicationType }}")<50 THEN 'Sky Q'
     WHEN "{{ ApplicationType }}" ILIKE 'roku' AND LENGTH("{{ ApplicationType }}")<50 THEN 'Roku TV'
-    WHEN "{{ ApplicationType }}" = '[DAZN 2.0] SHAKA' THEN 'Web' --this is Chrome, Edge Chromium and Firefox browsers
-    WHEN "{{ ApplicationType }}" = '[DAZN 2.0] SHAKA_WEDGE' THEN 'Web' --this is Edge legacy
-    WHEN "{{ ApplicationType }}" = '[DAZN 2.0] HASPLAYER' THEN 'Web' --this is Internet Explorer
-    WHEN "{{ ApplicationType }}" = '[DAZN 2.0] HTML5_FAIRPLAY' THEN 'Web' --this is safari browser
+    WHEN "{{ ApplicationType }}" = '[DAZN 2.0] SHAKA' THEN 'Web'
+    WHEN "{{ ApplicationType }}" = '[DAZN 2.0] SHAKA_WEDGE' THEN 'Web'
+    WHEN "{{ ApplicationType }}" = '[DAZN 2.0] HASPLAYER' THEN 'Web'
+    WHEN "{{ ApplicationType }}" = '[DAZN 2.0] HTML5_FAIRPLAY' THEN 'Web' 
     WHEN "{{ ApplicationType }}" ILIKE 'web' AND LENGTH("{{ ApplicationType }}")<50 THEN 'Web'
     WHEN "{{ ApplicationType }}" ILIKE 'Netcast' AND LENGTH("{{ ApplicationType }}")<50 THEN 'Netcast'
     WHEN "{{ ApplicationType }}" ILIKE 'Orsay' AND LENGTH("{{ ApplicationType }}")<50 THEN 'Orsay'

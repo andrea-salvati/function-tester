@@ -2,6 +2,6 @@
 {% macro caption_language_cleaning(closed_caption_language)  -%}
 CASE
     WHEN "{{ closed_caption_language }}" IN ('OFF', 'off') THEN 'OFF'
-    ELSE NULL --test
+    ELSE NULL
 END
 {%- endmacro %}
