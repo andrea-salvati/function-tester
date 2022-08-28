@@ -6,6 +6,7 @@ import snowflake.connector
 import pandas as pd
 import support_functions as sp
 import os
+from streamlit_ace import st_ace
 
 # set the layout to wide
 st.set_page_config(layout="wide")
@@ -17,7 +18,7 @@ with col1:
 with col2:
     st.title("Function Tester")
 
-file_list = os.listdir('functions/')
+file_list = os.listdir('funcion_tester_app/functions/')
 file_list = [file.replace('.sql','') for file in file_list]
 
 option = st.selectbox(
@@ -26,13 +27,14 @@ option = st.selectbox(
 st.write('This is the code for the function ' + option)
 
 # read the function
-with open('functions' + "/" + option + ".sql", 'r') as jinja_file:
+with open('funcion_tester_app/functions' + "/" + option + ".sql", 'r') as jinja_file:
     jinja_func = jinja_file.read()
 
-st.code(jinja_func, language='sql')
+# Spawn a new Ace editor
+content = st_ace(language='sql', theme='twilight', value=jinja_func)
 
 # cast the function to string and clean it
-clean_function = jinja_func.split('\n')[2:][:-2]
+clean_function = content.split('\n')[2:][:-2]
 str_func = ' '.join(clean_function)
 
 # isolate the arguments of the function
@@ -47,9 +49,9 @@ for arg in args:
     arg_input = st.text_input(arg)
     args_input[arg] = arg_input
 
-button = st.button('🏃 Run')
+run = st.button('🏃 Run')
 
-if button == True:
+if run == True:
     # connect to snowflake
     ctx = sp.ctx_connect()
 
