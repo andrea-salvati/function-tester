@@ -18,7 +18,7 @@ with col1:
 with col2:
     st.title("Function Tester")
 
-file_list = os.listdir('funcion_tester_app/functions/')
+file_list = os.listdir('function_tester_app/functions/')
 file_list = [file.replace('.sql','') for file in file_list]
 
 option = st.selectbox(
@@ -27,8 +27,12 @@ option = st.selectbox(
 st.write('This is the code for the function ' + option)
 
 # read the function
-with open('funcion_tester_app/functions' + "/" + option + ".sql", 'r') as jinja_file:
+with open('function_tester_app/functions' + "/" + option + ".sql", 'r') as jinja_file:
     jinja_func = jinja_file.read()
+
+st.write('Open on GitHub:')
+
+st.write(f'https://github.com/andrea-salvati/function-tester/blob/main/function_tester_app/functions/{option}.sql')
 
 # Spawn a new Ace editor
 content = st_ace(language='sql', theme='twilight', value=jinja_func)
